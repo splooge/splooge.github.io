@@ -9,10 +9,6 @@ Welcome to my documentation and notes
 .. toctree::
    :maxdepth: 2
    :caption: Guides
-   :glob:
-
-   getting-started
-   first-doc
 
    arch/index
 
