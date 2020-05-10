@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Arch Linux post-install options &mdash; cstevens-docs 2020.05.10.20.18 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Kubernetes on Arch" href="kube-install.html" />
+    <link rel="prev" title="Arch Linux install" href="arch-install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cstevens-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2020.05.10.20.18
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started with Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-doc.html">First Document</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Arch Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="arch-install.html">Arch Linux install</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Arch Linux post-install options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instal-the-secure-shell-sudo">Instal the secure shell, sudo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zsh">ZSH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-zsh">Install zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#some-basic-zsh-settings">Some basic zsh settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#systemd-homed">systemd-homed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pam-configs-for-systemd-homed">PAM configs for systemd-homed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-systemd-homed">Enable systemd-homed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-user-s-via-systemd-homed">Add user(s) via systemd-homed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kube-install.html">Install Kubernetes on Arch</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cstevens-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Arch Linux</a> &raquo;</li>
+        
+      <li>Arch Linux post-install options</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/arch/arch-post-install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="arch-linux-post-install-options">
+<h1>Arch Linux post-install options<a class="headerlink" href="#arch-linux-post-install-options" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="instal-the-secure-shell-sudo">
+<h2>Instal the secure shell, sudo<a class="headerlink" href="#instal-the-secure-shell-sudo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># pacman -S openssh sudo
+</pre></div>
+</div>
+</div>
+<div class="section" id="zsh">
+<h2>ZSH<a class="headerlink" href="#zsh" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-zsh">
+<h3>Install zsh<a class="headerlink" href="#install-zsh" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># pacman -S zsh
+</pre></div>
+</div>
+</div>
+<div class="section" id="some-basic-zsh-settings">
+<h3>Some basic zsh settings<a class="headerlink" href="#some-basic-zsh-settings" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">$HOME/.zshrc</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
+PROMPT=&quot;[%n@%m %~]$ &quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="systemd-homed">
+<h2>systemd-homed<a class="headerlink" href="#systemd-homed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pam-configs-for-systemd-homed">
+<h3>PAM configs for systemd-homed<a class="headerlink" href="#pam-configs-for-systemd-homed" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">/etc/pam.d/system-auth</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#%PAM-1.0
+
+auth      substack   nss-auth
+auth      optional   pam_permit.so
+auth      required   pam_env.so
+
+account   substack   nss-auth
+account   optional   pam_permit.so
+account   required   pam_time.so
+
+password  substack   nss-auth
+password  optional   pam_permit.so
+
+session   required   pam_limits.so
+session   optional   pam_systemd_home.so
+session   required   pam_unix.so
+session   optional   pam_permit.so
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">/etc/pam.d/nss-auth</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#%PAM-1.0
+
+auth     sufficient pam_unix.so try_first_pass nullok
+auth     sufficient pam_systemd_home.so
+auth     required   pam_deny.so
+
+account  sufficient pam_unix.so
+account  sufficient pam_systemd_home.so
+account  required   pam_deny.so
+
+password sufficient pam_unix.so try_first_pass nullok sha512 shadow
+password sufficient pam_systemd_home.so
+password required   pam_deny.so
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="enable-systemd-homed">
+<h3>Enable systemd-homed<a class="headerlink" href="#enable-systemd-homed" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># systemctl enable systemd-homed
+# systemctl start systemd-homed
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-user-s-via-systemd-homed">
+<h3>Add user(s) via systemd-homed<a class="headerlink" href="#add-user-s-via-systemd-homed" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># homectl create &lt;username&gt; -G wheel --shell=/bin/zsh --storage=directory
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kube-install.html" class="btn btn-neutral float-right" title="Install Kubernetes on Arch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="arch-install.html" class="btn btn-neutral float-left" title="Arch Linux install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Chris Stevens
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

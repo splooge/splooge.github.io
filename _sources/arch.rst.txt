@@ -1,0 +1,26 @@
+####
+Arch
+####
+
+Install
+=======
+
+``parted /dev/sda``
+``mklabel gpt``
+``mkpart primary fat32 1MiB 512MiB``
+``set 1 esp on``
+``mkpart primary linux-swap 512MiB 2512MiB``
+``mkpart primary ext4 2512MiB 100%``
+``quit``
+
+
+    parted /dev/sda
+    mklabel gpt
+    mkpart primary fat32 1MiB 512MiB
+    set 1 esp on
+    mkpart primary linux-swap 512MiB 2512MiB
+    mkpart primary ext4 2512MiB 100%
+    quit
+
+Test
+====

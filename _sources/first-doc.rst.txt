@@ -1,0 +1,4 @@
+First Document
+==============
+
+Welcome to `sphinx-docs <https://www.sphinx-doc.org>`_!
