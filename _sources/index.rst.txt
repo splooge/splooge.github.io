@@ -7,10 +7,12 @@ Welcome to my documentation and notes
 =====================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Guides
+    :maxdepth: 2
+    :caption: Guides
 
-   arch/index
+    firstpage
+
+    arch/index
 
 .. Indices and tables
     ==================
