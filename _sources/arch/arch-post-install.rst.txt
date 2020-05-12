@@ -95,8 +95,8 @@ Add user(s) via systemd-homed
 
     # homectl create <username> -G wheel --shell=/bin/zsh --storage=directory --uid=1001
 
-Add colors to ls
-================
+Colorize your `ls` output
+=========================
 
 .. code-block:: text
     :caption: /etc/profile.d/dircolors.sh
