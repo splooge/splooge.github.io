@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Arch Linux install &mdash; cstevens-docs 2020.05.11.01.33 documentation</title>
+  <title>Arch Linux install &mdash; cstevens-docs 2020.05.12.01.42 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2020.05.11.01.33
+                2020.05.12.01.42
               </div>
             
           
@@ -93,7 +93,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#format-partitions">Format partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mount-partitions">Mount partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-the-base-system-and-enter-chroot">Install the base system and enter chroot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-local-timezone">Set local timezone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-local-timezone-and-create-etc-adjtime">Set local timezone and create /etc/adjtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-and-generate-locale">Set and generate locale</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-the-host-name">Set the host name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adjust-the-hosts-file">Adjust the hosts file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#enable-ntp-daemon">Enable NTP daemon</a></li>
@@ -191,8 +192,8 @@
 (parted) mklabel gpt
 (parted) mkpart primary fat32 1MiB 512MiB
 (parted) set 1 esp on
-(parted) mkpart primary linux-swap 512MiB 2512MiB
-(parted) mkpart primary ext4 2512MiB 100%
+(parted) mkpart primary linux-swap 512MiB 2560MiB
+(parted) mkpart primary ext4 2560MiB 100%
 (parted) quit
 </pre></div>
 </div>
@@ -222,9 +223,18 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="set-local-timezone">
-<h2>Set local timezone<a class="headerlink" href="#set-local-timezone" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-local-timezone-and-create-etc-adjtime">
+<h2>Set local timezone and create /etc/adjtime<a class="headerlink" href="#set-local-timezone-and-create-etc-adjtime" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+# hwclock --systohc
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-and-generate-locale">
+<h2>Set and generate locale<a class="headerlink" href="#set-and-generate-locale" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># echo &quot;en_US.UTF-8 UTF-8&quot; &gt; /etc/locale.gen
+# locale-gen
+# echo &quot;LANG=en_US.UTF-8&quot; &gt; /etc/locale.conf
 </pre></div>
 </div>
 </div>
@@ -239,9 +249,9 @@
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">/etc/hosts</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>127.0.0.1    localhost.localdomain   localhost
-::1          localhost.localdomain   localhost
-# Replace 127.0.1.1 with your static IP address, if you have one
-127.0.1.1    $myhostname.$mydomain   $myhostname
+::1          localhost6.localdomain   localhost6
+192.168.1.250 $myhostname.$mydomain   $myhostname
+2001:470:8050:1::250 $myhostname.$mydomain  $myhostname
 </pre></div>
 </div>
 </div>
@@ -308,9 +318,13 @@ DHCP=yes
 Name=eth0
 
 [Network]
-Address=192.168.1.100/24
+Address=192.168.1.250/24
 Gateway=192.168.1.1
-DNS=8.8.8.8
+DNS=192.168.1.53
+
+Address=2001:470:8050:1::250/64
+Gateway=2001:470:8050:1::1
+DNS=2001:470:8050:1::53
 </pre></div>
 </div>
 </div>

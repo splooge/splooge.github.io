@@ -13,8 +13,8 @@ Setup disk partitions
     (parted) mklabel gpt
     (parted) mkpart primary fat32 1MiB 512MiB
     (parted) set 1 esp on
-    (parted) mkpart primary linux-swap 512MiB 2512MiB
-    (parted) mkpart primary ext4 2512MiB 100%
+    (parted) mkpart primary linux-swap 512MiB 2560MiB
+    (parted) mkpart primary ext4 2560MiB 100%
     (parted) quit
 
 Format partitions
@@ -45,12 +45,22 @@ Install the base system and enter chroot
     # genfstab -U /mnt >> /mnt/etc/fstab
     # arch-chroot /mnt
 
-Set local timezone
-==================
+Set local timezone and create /etc/adjtime
+==========================================
 
 .. code-block:: text
 
     # ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+    # hwclock --systohc
+
+Set and generate locale
+=======================
+
+.. code-block:: text
+
+    # echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+    # locale-gen
+    # echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 Set the host name
 =================
@@ -66,9 +76,9 @@ Adjust the hosts file
     :caption: /etc/hosts
 
     127.0.0.1    localhost.localdomain   localhost
-    ::1          localhost.localdomain   localhost
-    # Replace 127.0.1.1 with your static IP address, if you have one
-    127.0.1.1    $myhostname.$mydomain   $myhostname
+    ::1          localhost6.localdomain   localhost6
+    192.168.1.250 $myhostname.$mydomain   $myhostname
+    2001:470:8050:1::250 $myhostname.$mydomain  $myhostname
 
 Enable NTP daemon
 =================
@@ -137,9 +147,13 @@ Static
     Name=eth0
 
     [Network]
-    Address=192.168.1.100/24
+    Address=192.168.1.250/24
     Gateway=192.168.1.1
-    DNS=8.8.8.8
+    DNS=192.168.1.53
+
+    Address=2001:470:8050:1::250/64
+    Gateway=2001:470:8050:1::1
+    DNS=2001:470:8050:1::53
 
 Enable networking on boot
 
