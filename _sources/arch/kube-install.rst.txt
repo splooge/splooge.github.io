@@ -12,7 +12,7 @@ Install some needed utilities
 
 .. code-block:: text
 
-    # pacman -S docker ebtables ethtool socat unzip wget
+    # pacman -S conntrack-tools docker ebtables ethtool socat
 
 Disable swap space
 ------------------
@@ -29,7 +29,7 @@ Load and configure the br_netfilter module
 
     # modprobe br_netfilter
     # sysctl net.bridge.bridge-nf-call-iptables=1
-    # echo "br_netfilter" > /etc/modules.load.d/br_netfilter.conf
+    # echo "br_netfilter" > /etc/modules-load.d/br_netfilter.conf
     # echo "net.bridge.bridge-nf-call-iptables=1" > /etc/sysctl.d/br_netfilter.conf
 
 Update the `ExecStart` line in the docker unit file
@@ -66,7 +66,7 @@ Download the latest container network interface
 
 .. code-block:: text
 
-    export CNI_VERSION="v0.8.5"
+    CNI_VERSION="v0.8.6"
     mkdir -p /opt/cni/bin
     curl -L "https://github.com/containernetworking/plugins/releases/download/${CNI_VERSION}/cni-plugins-linux-amd64-${CNI_VERSION}.tgz" | tar -C /opt/cni/bin -xz
 
@@ -75,7 +75,7 @@ Download the latest container runtime interface
 
 .. code-block:: text
 
-    export CRICTL_VERSION="v1.18.0"
+    CRICTL_VERSION="v1.18.0"
     mkdir -p /opt/cri
     curl -L "https://github.com/kubernetes-incubator/cri-tools/releases/download/${CRICTL_VERSION}/crictl-${CRICTL_VERSION}-linux-amd64.tar.gz" | tar -C /opt/cri -xz
 
@@ -93,7 +93,7 @@ Create systemd unit files for kubelet
     After=network-online.target
 
     [Service]
-    ExecStart=/usr/bin/kubelet
+    ExecStart=/usr/local/bin/kubelet
     Restart=always
     StartLimitInterval=0
     RestartSec=10
@@ -114,7 +114,7 @@ Create systemd unit files for kubelet
     # the .NodeRegistration.KubeletExtraArgs object in the configuration files instead. KUBELET_EXTRA_ARGS should be sourced from this file.
     EnvironmentFile=-/etc/default/kubelet
     ExecStart=
-    ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_EXTRA_ARGS
+    ExecStart=/usr/local/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_EXTRA_ARGS
 
 Enable and start kubelet
 ------------------------
@@ -137,7 +137,8 @@ Worker node:
 
 .. code-block:: text
 
-    # kubeadm join ...
+    # kubeadm join 192.168.1.241:6443 --token <token> --discovery-token-ca-cert-hash sha256: <hash>
+ 
 
 Setup kubectl config
 --------------------
@@ -147,6 +148,16 @@ Setup kubectl config
     $ mkdir -p $HOME/.kube
     $ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     $ chown $(id -u):$(id -g) $HOME/.kube/config
+
+Deploy a pod network to the cluster
+-----------------------------------
+
+.. code-block:: text
+
+    Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+    https://kubernetes.io/docs/concepts/cluster-administration/addons/
+    eg:
+    kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
 kubectl examples
 ----------------
@@ -162,4 +173,7 @@ kubectl examples
       - Show all resources from all namespaces
     * - kubectl describe nodes
       - Show information of all nodes in the cluster
-
+    * - kubectl top node
+      - Get node resource usage
+    * - kubectl top pod
+      - Get pod resource usage

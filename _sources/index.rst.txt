@@ -14,6 +14,8 @@ Welcome to my documentation and notes
 
     arch/index
 
+    notes/index
+
 .. Indices and tables
     ==================
 

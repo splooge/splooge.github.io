@@ -95,6 +95,22 @@ Add user(s) via systemd-homed
 
     # homectl create <username> -G wheel --shell=/bin/zsh --storage=directory --uid=1001
 
+Update systemd-boot when there is a new version
+===============================================
+
+.. code-block:: text
+    :caption: /etc/pacman.d/hooks/100-systemd-boot.hook
+
+    [Trigger]
+    Type = Package
+    Operation = Upgrade
+    Target = systemd
+
+    [Action]
+    Description = Updating systemd-boot
+    When = PostTransaction
+    Exec = /usr/bin/bootctl update
+
 Colorize your `ls` output
 =========================
 
