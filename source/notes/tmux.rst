@@ -5,7 +5,6 @@ tmux
 ----
 
 .. code-block:: text
-    :caption: ~/.tmux.conf
 
     # remap prefix from 'C-b' to 'C-a'
     unbind C-b
