@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install Kubernetes on Arch &mdash; cstevens-docs 2020.06.09.05.17 documentation</title>
+  <title>Install Kubernetes on Arch &mdash; cstevens-docs 2020.06.12.19.21 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="My notes" href="../notes/index.html" />
+    <link rel="next" title="My notes on stuff" href="../notes/index.html" />
     <link rel="prev" title="Arch Linux post-install options" href="arch-post-install.html" /> 
 </head>
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2020.06.09.05.17
+                2020.06.12.19.21
               </div>
             
           
@@ -104,12 +104,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#initialize-the-cluster">Initialize the cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setup-kubectl-config">Setup kubectl config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deploy-a-pod-network-to-the-cluster">Deploy a pod network to the cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-kubectl-completion-for-zsh">Add kubectl completion for zsh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#kubectl-examples">kubectl examples</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/index.html">My notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/index.html">My notes on stuff</a></li>
 </ul>
 
             
@@ -323,6 +324,12 @@ kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl v
 </pre></div>
 </div>
 </div>
+<div class="section" id="add-kubectl-completion-for-zsh">
+<h2>Add kubectl completion for zsh<a class="headerlink" href="#add-kubectl-completion-for-zsh" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>echo &quot;source &lt;(kubectl completion zsh)&quot; &gt;&gt; ~/.zshrc
+</pre></div>
+</div>
+</div>
 <div class="section" id="kubectl-examples">
 <h2>kubectl examples<a class="headerlink" href="#kubectl-examples" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-given docutils align-default">
@@ -362,7 +369,7 @@ kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl v
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../notes/index.html" class="btn btn-neutral float-right" title="My notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../notes/index.html" class="btn btn-neutral float-right" title="My notes on stuff" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="arch-post-install.html" class="btn btn-neutral float-left" title="Arch Linux post-install options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

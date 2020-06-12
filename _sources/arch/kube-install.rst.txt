@@ -159,6 +159,13 @@ Deploy a pod network to the cluster
     eg:
     kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
+Add kubectl completion for zsh
+------------------------------
+
+.. code-block:: text
+
+    echo "source <(kubectl completion zsh)" >> ~/.zshrc
+
 kubectl examples
 ----------------
 

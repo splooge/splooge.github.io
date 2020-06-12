@@ -1,9 +1,9 @@
-My notes
-========
+My notes on stuff
+=================
 
 .. toctree::
    :maxdepth: 1
-   :caption: Notes on things
 
    pacman
+   tmux
 
