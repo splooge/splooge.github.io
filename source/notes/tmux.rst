@@ -1,5 +1,5 @@
-tmux settings
-=============
+tmux QOL settings
+=================
 
 .. code-block::
     :caption: ~/.tmux.conf
