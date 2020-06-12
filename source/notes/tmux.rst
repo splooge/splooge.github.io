@@ -1,6 +1,9 @@
 tmux QOL settings
 =================
 
+tmux
+----
+
 .. code-block:: text
     :caption: ~/.tmux.conf
 
