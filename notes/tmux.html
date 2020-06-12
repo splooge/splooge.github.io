@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tmux QOL settings &mdash; cstevens-docs 2020.06.12.20.17 documentation</title>
+  <title>tmux QOL settings &mdash; cstevens-docs 2020.06.12.22.32 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                2020.06.12.20.17
+                2020.06.12.22.32
               </div>
             
           
@@ -164,28 +164,28 @@
 <h1>tmux QOL settings<a class="headerlink" href="#tmux-qol-settings" title="Permalink to this headline">¶</a></h1>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">~/.tmux.conf</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># remap prefix from &#39;C-b&#39; to &#39;C-a&#39;</span>
-<span class="n">unbind</span> <span class="n">C</span><span class="o">-</span><span class="n">b</span>
-<span class="nb">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">prefix</span> <span class="n">C</span><span class="o">-</span><span class="n">a</span>
-<span class="n">bind</span><span class="o">-</span><span class="n">key</span> <span class="n">C</span><span class="o">-</span><span class="n">a</span> <span class="n">send</span><span class="o">-</span><span class="n">prefix</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># remap prefix from &#39;C-b&#39; to &#39;C-a&#39;
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
 
-<span class="c1"># split panes using | and -</span>
-<span class="n">bind</span> <span class="o">|</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">h</span>
-<span class="n">bind</span> <span class="o">-</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">v</span>
-<span class="n">unbind</span> <span class="s1">&#39;&quot;&#39;</span>
-<span class="n">unbind</span> <span class="o">%</span>
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind &#39;&quot;&#39;
+unbind %
 
-<span class="c1"># switch panes using Alt-arrow without prefix</span>
-<span class="n">bind</span> <span class="o">-</span><span class="n">n</span> <span class="n">M</span><span class="o">-</span><span class="n">Left</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">L</span>
-<span class="n">bind</span> <span class="o">-</span><span class="n">n</span> <span class="n">M</span><span class="o">-</span><span class="n">Right</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">R</span>
-<span class="n">bind</span> <span class="o">-</span><span class="n">n</span> <span class="n">M</span><span class="o">-</span><span class="n">Up</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">U</span>
-<span class="n">bind</span> <span class="o">-</span><span class="n">n</span> <span class="n">M</span><span class="o">-</span><span class="n">Down</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">D</span>
+# switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
 
-<span class="c1"># Enable mouse mode (tmux 2.1 and above)</span>
-<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">mouse</span> <span class="n">on</span>
+# Enable mouse mode (tmux 2.1 and above)
+set -g mouse on
 
-<span class="c1"># Bring cursor to beginning of line like in screen: C-a, a</span>
-<span class="n">bind</span> <span class="n">a</span> <span class="n">send</span><span class="o">-</span><span class="n">prefix</span>
+# Bring cursor to beginning of line like in screen: C-a, a
+bind a send-prefix
 </pre></div>
 </div>
 </div>

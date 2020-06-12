@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Pacman &mdash; cstevens-docs 2020.06.12.20.17 documentation</title>
+  <title>Pacman &mdash; cstevens-docs 2020.06.12.22.32 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2020.06.12.20.17
+                2020.06.12.22.32
               </div>
             
           
@@ -92,6 +92,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Pacman</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#update-local-pacman-databases">Update local pacman databases</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#search-repository-for-packages">Search repository for packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-package-does-foo-come-from">What package does &lt;foo&gt; come from?</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tmux.html">tmux QOL settings</a></li>
@@ -169,13 +170,20 @@
 <h1>Pacman<a class="headerlink" href="#pacman" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="update-local-pacman-databases">
 <h2>Update local pacman databases<a class="headerlink" href="#update-local-pacman-databases" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">Syu</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># pacman -Syu
 </pre></div>
 </div>
 </div>
 <div class="section" id="search-repository-for-packages">
 <h2>Search repository for packages<a class="headerlink" href="#search-repository-for-packages" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">Ss</span> <span class="o">&lt;</span><span class="n">pkg</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ pacman -Ss &lt;pkg-name&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-package-does-foo-come-from">
+<h2>What package does &lt;foo&gt; come from?<a class="headerlink" href="#what-package-does-foo-come-from" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># pacman -Fy
+$ pacman -F &lt;foo&gt;
 </pre></div>
 </div>
 </div>

@@ -1,7 +1,7 @@
 tmux QOL settings
 =================
 
-.. code-block::
+.. code-block:: text
     :caption: ~/.tmux.conf
 
     # remap prefix from 'C-b' to 'C-a'

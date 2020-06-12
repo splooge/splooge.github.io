@@ -4,14 +4,21 @@ Pacman
 Update local pacman databases
 -----------------------------
 
-.. code-block::
+.. code-block:: text
 
-    pacman -Syu
+    # pacman -Syu
 
 Search repository for packages
 ------------------------------
 
-.. code-block::
+.. code-block:: text
 
-    pacman -Ss <pkg-name>
+    $ pacman -Ss <pkg-name>
 
+What package does <foo> come from?
+----------------------------------
+
+.. code-block:: text
+
+    # pacman -Fy
+    $ pacman -F <foo>
