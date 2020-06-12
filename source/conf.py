@@ -82,5 +82,5 @@ html_context = {
     'display_github': True,
     'github_user': 'splooge',
     'github_repo': 'splooge.github.io',
-    'github_version': 'tree/master/_sources/' ,
+    'github_version': 'master/source/' ,
 }
